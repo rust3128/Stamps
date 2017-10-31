@@ -2,6 +2,8 @@
 #define REGIONSDIALOG_H
 
 #include <QDialog>
+#include <QSqlTableModel>
+
 
 namespace Ui {
 class RegionsDialog;
@@ -15,8 +17,13 @@ public:
     explicit RegionsDialog(QWidget *parent = 0);
     ~RegionsDialog();
 
+private slots:
+    void on_pbAdd_clicked();
+
 private:
     Ui::RegionsDialog *ui;
+    QSqlTableModel *model;
+    void createUI();
 };
 
 #endif // REGIONSDIALOG_H
