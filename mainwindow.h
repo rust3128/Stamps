@@ -18,6 +18,8 @@ public:
 private slots:
     void on_actionRegions_triggered();
 
+    void on_actionUsers_triggered();
+
 private:
     Ui::MainWindow *ui;
 };

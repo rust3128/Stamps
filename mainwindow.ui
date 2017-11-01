@@ -6,12 +6,12 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>400</width>
-    <height>300</height>
+    <width>751</width>
+    <height>601</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>Stamps. Учет средств контроля </string>
   </property>
   <widget class="QWidget" name="centralWidget"/>
   <widget class="QMenuBar" name="menuBar">
@@ -19,7 +19,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>400</width>
+     <width>751</width>
      <height>23</height>
     </rect>
    </property>
@@ -31,6 +31,7 @@
      <property name="title">
       <string>Справочники</string>
      </property>
+     <addaction name="actionUsers"/>
      <addaction name="actionRegions"/>
     </widget>
     <addaction name="menuDirectories"/>
@@ -49,6 +50,11 @@
   <action name="actionRegions">
    <property name="text">
     <string>Регионы</string>
+   </property>
+  </action>
+  <action name="actionUsers">
+   <property name="text">
+    <string>Сотрудники</string>
    </property>
   </action>
  </widget>
