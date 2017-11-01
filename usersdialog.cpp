@@ -4,6 +4,7 @@
 #include <QSqlRecord>
 #include <QDebug>
 #include <QSqlRelationalDelegate>
+#include <QMessageBox>
 
 UsersDialog::UsersDialog(QWidget *parent) :
     QDialog(parent),
@@ -75,7 +76,8 @@ void UsersDialog::on_pbNew_clicked()
 
 void UsersDialog::on_pbEdit_clicked()
 {
-    ui->groupBox->hide();
+    ui->groupBox->show();
+    ui->tableView->setEnabled(false);
 }
 
 void UsersDialog::userSelectionChanged(QItemSelection selection)
@@ -83,3 +85,40 @@ void UsersDialog::userSelectionChanged(QItemSelection selection)
     mapper->setCurrentModelIndex(selection.indexes().first());
 }
 
+
+void UsersDialog::on_buttonBox_clicked(QAbstractButton *button)
+{
+    switch (ui->buttonBox->standardButton(button)) {
+    case QDialogButtonBox::Save:
+        mapper->submit();
+        modelUsers->submitAll();
+        ui->tableView->setEnabled(true);
+        ui->groupBox->hide();
+        break;
+    default:
+        break;
+    }
+}
+
+void UsersDialog::on_pbClose_clicked()
+{
+    this->reject();
+}
+
+void UsersDialog::on_pbDelete_clicked()
+{
+    int row =  ui->tableView->currentIndex().row();
+
+
+    QMessageBox::StandardButton reply;
+    reply = QMessageBox::question(this, QString::fromUtf8("Удаление сотрудника"),
+                          QString::fromUtf8("Вы действительно хотите удалить сотрудника %1?")
+                                  .arg(modelUsers->data(modelUsers->index(row,2)).toString()),
+                          QMessageBox::Yes | QMessageBox::No);
+    if (reply == QMessageBox::Yes){
+        modelUsers->removeRow(row);
+        modelUsers->submitAll();
+        modelUsers->select();
+    }
+
+}
