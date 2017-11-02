@@ -28,17 +28,20 @@ SOURCES += \
         mainwindow.cpp \
     connectdialog.cpp \
     regionsdialog.cpp \
-    usersdialog.cpp
+    usersdialog.cpp \
+    storagedialog.cpp
 
 HEADERS += \
         mainwindow.h \
     database.h \
     connectdialog.h \
     regionsdialog.h \
-    usersdialog.h
+    usersdialog.h \
+    storagedialog.h
 
 FORMS += \
         mainwindow.ui \
     connectdialog.ui \
     regionsdialog.ui \
-    usersdialog.ui
+    usersdialog.ui \
+    storagedialog.ui

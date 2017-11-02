@@ -2,6 +2,8 @@
 #include "ui_mainwindow.h"
 #include "regionsdialog.h"
 #include "usersdialog.h"
+#include "storagedialog.h"
+
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -25,4 +27,10 @@ void MainWindow::on_actionUsers_triggered()
 {
     UsersDialog *userDlg = new UsersDialog();
     userDlg->exec();
+}
+
+void MainWindow::on_actionStorage_triggered()
+{
+    StorageDialog *storageDlg = new StorageDialog(this);
+    storageDlg->exec();
 }

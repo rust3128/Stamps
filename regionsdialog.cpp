@@ -25,6 +25,7 @@ void RegionsDialog::createUI()
     model->setTable("regions");
     model->select();
 
+
     ui->listView->setModel(model);
     ui->listView->setModelColumn(1);
 }

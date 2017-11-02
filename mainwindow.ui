@@ -31,6 +31,7 @@
      <property name="title">
       <string>Справочники</string>
      </property>
+     <addaction name="actionStorage"/>
      <addaction name="actionUsers"/>
      <addaction name="actionRegions"/>
     </widget>
@@ -55,6 +56,11 @@
   <action name="actionUsers">
    <property name="text">
     <string>Сотрудники</string>
+   </property>
+  </action>
+  <action name="actionStorage">
+   <property name="text">
+    <string>Склады</string>
    </property>
   </action>
  </widget>

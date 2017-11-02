@@ -24,11 +24,8 @@ private slots:
     void on_pbNew_clicked();
     void on_pbEdit_clicked();
     void userSelectionChanged(QItemSelection selection);
-
     void on_buttonBox_clicked(QAbstractButton *button);
-
     void on_pbClose_clicked();
-
     void on_pbDelete_clicked();
 
 private:
