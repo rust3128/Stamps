@@ -37,6 +37,19 @@
     </widget>
     <addaction name="menuDirectories"/>
    </widget>
+   <widget class="QMenu" name="menuStamps">
+    <property name="title">
+     <string>Марки</string>
+    </property>
+    <widget class="QMenu" name="menuDocs">
+     <property name="title">
+      <string>Документы</string>
+     </property>
+     <addaction name="actionFromTipo"/>
+    </widget>
+    <addaction name="menuDocs"/>
+   </widget>
+   <addaction name="menuStamps"/>
    <addaction name="menuSettings"/>
   </widget>
   <widget class="QToolBar" name="mainToolBar">
@@ -61,6 +74,11 @@
   <action name="actionStorage">
    <property name="text">
     <string>Склады</string>
+   </property>
+  </action>
+  <action name="actionFromTipo">
+   <property name="text">
+    <string>Приход из типографии</string>
    </property>
   </action>
  </widget>
