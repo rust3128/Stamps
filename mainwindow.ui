@@ -41,24 +41,25 @@
     <property name="title">
      <string>Марки</string>
     </property>
-    <widget class="QMenu" name="menuDocs">
-     <property name="title">
-      <string>Документы</string>
-     </property>
-     <addaction name="actionFromTipo"/>
-    </widget>
-    <addaction name="menuDocs"/>
+    <addaction name="actionDocs"/>
    </widget>
    <addaction name="menuStamps"/>
    <addaction name="menuSettings"/>
   </widget>
   <widget class="QToolBar" name="mainToolBar">
+   <property name="iconSize">
+    <size>
+     <width>32</width>
+     <height>32</height>
+    </size>
+   </property>
    <attribute name="toolBarArea">
     <enum>TopToolBarArea</enum>
    </attribute>
    <attribute name="toolBarBreak">
     <bool>false</bool>
    </attribute>
+   <addaction name="actionDocs"/>
   </widget>
   <widget class="QStatusBar" name="statusBar"/>
   <action name="actionRegions">
@@ -76,13 +77,19 @@
     <string>Склады</string>
    </property>
   </action>
-  <action name="actionFromTipo">
+  <action name="actionDocs">
+   <property name="icon">
+    <iconset resource="resource.qrc">
+     <normaloff>:/Image/documents.png</normaloff>:/Image/documents.png</iconset>
+   </property>
    <property name="text">
-    <string>Приход из типографии</string>
+    <string>Движение</string>
    </property>
   </action>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
- <resources/>
+ <resources>
+  <include location="resource.qrc"/>
+ </resources>
  <connections/>
 </ui>

@@ -17,10 +17,10 @@ public:
 
 private slots:
     void on_actionRegions_triggered();
-
     void on_actionUsers_triggered();
-
     void on_actionStorage_triggered();
+
+    void on_actionDocs_triggered();
 
 private:
     Ui::MainWindow *ui;

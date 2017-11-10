@@ -3,6 +3,7 @@
 #include "regionsdialog.h"
 #include "usersdialog.h"
 #include "storagedialog.h"
+#include "documentsdialog.h"
 
 
 MainWindow::MainWindow(QWidget *parent) :
@@ -33,4 +34,11 @@ void MainWindow::on_actionStorage_triggered()
 {
     StorageDialog *storageDlg = new StorageDialog(this);
     storageDlg->exec();
+}
+
+void MainWindow::on_actionDocs_triggered()
+{
+    DocumentsDialog *docDlg = new DocumentsDialog();
+    this->setCentralWidget(docDlg);
+    docDlg->exec();
 }

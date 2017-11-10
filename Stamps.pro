@@ -29,7 +29,8 @@ SOURCES += \
     connectdialog.cpp \
     regionsdialog.cpp \
     usersdialog.cpp \
-    storagedialog.cpp
+    storagedialog.cpp \
+    documentsdialog.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -37,11 +38,16 @@ HEADERS += \
     connectdialog.h \
     regionsdialog.h \
     usersdialog.h \
-    storagedialog.h
+    storagedialog.h \
+    documentsdialog.h
 
 FORMS += \
         mainwindow.ui \
     connectdialog.ui \
     regionsdialog.ui \
     usersdialog.ui \
-    storagedialog.ui
+    storagedialog.ui \
+    documentsdialog.ui
+
+RESOURCES += \
+    resource.qrc
