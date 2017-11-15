@@ -30,7 +30,9 @@ SOURCES += \
     regionsdialog.cpp \
     usersdialog.cpp \
     storagedialog.cpp \
-    documentsdialog.cpp
+    documentsdialog.cpp \
+    changedoctypedialog.cpp \
+    docnewdialog.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -39,7 +41,9 @@ HEADERS += \
     regionsdialog.h \
     usersdialog.h \
     storagedialog.h \
-    documentsdialog.h
+    documentsdialog.h \
+    changedoctypedialog.h \
+    docnewdialog.h
 
 FORMS += \
         mainwindow.ui \
@@ -47,7 +51,9 @@ FORMS += \
     regionsdialog.ui \
     usersdialog.ui \
     storagedialog.ui \
-    documentsdialog.ui
+    documentsdialog.ui \
+    changedoctypedialog.ui \
+    docnewdialog.ui
 
 RESOURCES += \
     resource.qrc

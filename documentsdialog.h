@@ -15,8 +15,14 @@ public:
     explicit DocumentsDialog(QWidget *parent = 0);
     ~DocumentsDialog();
 
+private slots:
+
+
+    void on_toolButtonNewDoc_clicked();
+
 private:
     Ui::DocumentsDialog *ui;
+
 };
 
 #endif // DOCUMENTSDIALOG_H

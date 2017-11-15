@@ -51,7 +51,7 @@ color: rgb(0, 0, 255);</string>
      </property>
      <layout class="QHBoxLayout" name="horizontalLayout">
       <item>
-       <widget class="QToolButton" name="toolButton">
+       <widget class="QToolButton" name="toolButtonNewDoc">
         <property name="toolTip">
          <string>Новый документ</string>
         </property>
