@@ -2,5 +2,7 @@
     <qresource prefix="/">
         <file>Image/documents.png</file>
         <file>Image/new.png</file>
+        <file>Image/ok.png</file>
+        <file>Image/error.png</file>
     </qresource>
 </RCC>
