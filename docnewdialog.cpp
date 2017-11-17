@@ -38,6 +38,8 @@ void DocNewDialog::createUI()
     pixError = new QPixmap();
     pixOk->load(":/Image/ok.png");
     pixError->load(":/Image/error.png");
+    docNumber=genDocNumber(docID);
+    ui->labelNumDoc->setText(docNumber);
 
     resetData();
 }
@@ -161,17 +163,45 @@ void DocNewDialog::on_buttonBox_clicked(QAbstractButton *button)
 
 void DocNewDialog::documentCreate()
 {
-    qDebug() << genDocNumber(docID);
+    QSqlQuery q, qq;
+    QString strSQL;
+    colStamps=numberEnd-numberBegin+1;
+    strSQL=QString("INSERT INTO docs (datop,docnumber,doctype,count,serials,begin,end,description) "
+                   "VALUES ('%1','%2',%3,%4,'%5',%6,%7,'%8')")
+                 .arg(ui->dateDoc->dateTime().toString("yyyy-MM-dd hh:mm:ss"))
+                 .arg(docNumber)
+                 .arg(docID)
+                 .arg(colStamps)
+                 .arg(serial)
+                 .arg(numberBegin)
+                 .arg(numberEnd)
+                 .arg(ui->plainTextEditComments->toPlainText());
+
+
+//    qDebug() << strSQL;
+    if(!q.exec(strSQL)) qDebug() << "Не удалось добавить документ." << q.lastError().text();
+    q.finish();
+    strSQL=QString("CALL `stamps`.`stampsfromtipo`('%1', %2, %3)")
+            .arg(serial)
+            .arg(numberBegin)
+            .arg(numberEnd);
+
+    if(!qq.exec(strSQL)) qDebug() << "Не удалось добавить марки." << qq.lastError().text();
 }
 
 QString DocNewDialog::genDocNumber(int id)
 {
     QString docNum;
     QSqlQuery q;
-    q.prepare("SELECT numdoc FROM doctype WHERE doctypeid=:typeid");
+    q.prepare("SELECT numdoc, docprefix FROM doctype WHERE doctypeid=:typeid");
     q.bindValue(":typeid",id);
     q.exec();
-    docNum=q.value(0).toString();
+    q.next();
+    int numdoc = q.value(0).toInt();
+    numdoc++;
+    docNum=q.value(1).toString()+QString::number(numdoc).rightJustified(6, '0');;
+
+//    result = QString::number(myNumber).rightJustified(6, '0');
 
     return docNum;
 

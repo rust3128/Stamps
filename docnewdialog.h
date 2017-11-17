@@ -31,7 +31,8 @@ private:
     QPixmap *pixError;
     bool serOK, begOK, endOK, diapOK;
     QString serial;
-    int numberBegin, numberEnd;
+    int numberBegin, numberEnd,colStamps;
+    QString docNumber;
 
     void createUI();
     void resetData();
