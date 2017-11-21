@@ -2,6 +2,9 @@
 #define DOCUMENTSDIALOG_H
 
 #include <QDialog>
+#include <QSqlRelationalTableModel>
+#include <QSqlRelationalDelegate>
+#include <QSqlRelation>
 
 namespace Ui {
 class DocumentsDialog;
@@ -16,12 +19,15 @@ public:
     ~DocumentsDialog();
 
 private slots:
-
-
     void on_toolButtonNewDoc_clicked();
 
 private:
     Ui::DocumentsDialog *ui;
+    QSqlRelationalTableModel *modelDocs;
+
+private:
+    void setupModelDocs(const QStringList &headers);
+    void createUI();
 
 };
 

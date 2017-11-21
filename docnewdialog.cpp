@@ -149,6 +149,7 @@ void DocNewDialog::on_buttonBox_clicked(QAbstractButton *button)
     switch (ui->buttonBox->standardButton(button)) {
     case QDialogButtonBox::Save:
         documentCreate();
+        this->accept();
         break;
     case QDialogButtonBox::Close:
         this->reject();
@@ -163,30 +164,22 @@ void DocNewDialog::on_buttonBox_clicked(QAbstractButton *button)
 
 void DocNewDialog::documentCreate()
 {
-    QSqlQuery q, qq;
+    QSqlQuery q, qq, qinsdocdatas;
     QString strSQL;
-    colStamps=numberEnd-numberBegin+1;
-    strSQL=QString("INSERT INTO docs (datop,docnumber,doctype,count,serials,begin,end,description) "
-                   "VALUES ('%1','%2',%3,%4,'%5',%6,%7,'%8')")
-                 .arg(ui->dateDoc->dateTime().toString("yyyy-MM-dd hh:mm:ss"))
-                 .arg(docNumber)
-                 .arg(docID)
-                 .arg(colStamps)
-                 .arg(serial)
-                 .arg(numberBegin)
-                 .arg(numberEnd)
-                 .arg(ui->plainTextEditComments->toPlainText());
 
-
-//    qDebug() << strSQL;
-    if(!q.exec(strSQL)) qDebug() << "Не удалось добавить документ." << q.lastError().text();
-    q.finish();
-    strSQL=QString("CALL `stamps`.`stampsfromtipo`('%1', %2, %3)")
+    strSQL = QString("CALL `stamps`.`new_document`('%1', '%2', %3, '%4', %5, %6, '%7')")
+            .arg(ui->dateDoc->dateTime().toString("yyyy-MM-dd hh:mm:ss"))
+            .arg(docNumber)
+            .arg(docID)
             .arg(serial)
             .arg(numberBegin)
-            .arg(numberEnd);
+            .arg(numberEnd)
+            .arg(ui->plainTextEditComments->toPlainText());
 
-    if(!qq.exec(strSQL)) qDebug() << "Не удалось добавить марки." << qq.lastError().text();
+    if(!q.exec(strSQL)) qDebug() << "Не удалось создать документ." << q.lastError().text();
+
+
+
 }
 
 QString DocNewDialog::genDocNumber(int id)
