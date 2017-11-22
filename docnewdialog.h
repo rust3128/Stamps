@@ -4,6 +4,7 @@
 #include <QDialog>
 #include <QPixmap>
 #include <QAbstractButton>
+#include <QSqlTableModel>
 
 namespace Ui {
 class DocNewDialog;
@@ -22,6 +23,7 @@ private slots:
     void on_lineEditBeginNum_textChanged(const QString &arg1);
     void on_lineEditEndNum_textChanged(const QString &arg1);
     void on_buttonBox_clicked(QAbstractButton *button);
+    void on_comboBox2Region_activated(int idx);
 
 private:
     Ui::DocNewDialog *ui;
@@ -29,15 +31,21 @@ private:
     QString docType;
     QPixmap *pixOk;
     QPixmap *pixError;
-    bool serOK, begOK, endOK, diapOK;
+    bool serOK, begOK, endOK, diapOK, reg2OK;
     QString serial;
     int numberBegin, numberEnd,colStamps;
     QString docNumber;
+    QSqlTableModel *modelRegion;
+    int idStorage;
+    int idStatus;
 
     void createUI();
     void resetData();
     void documentCreate();
     QString genDocNumber(int id);
+    void createComboRegion();
+    bool validStamps();
+
 
 };
 

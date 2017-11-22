@@ -72,6 +72,7 @@ void DocumentsDialog::on_toolButtonNewDoc_clicked()
     else
         qDebug() << "Не выбрали";
     delete docTypeDlg;
+    modelDocs->select();
 }
 
 

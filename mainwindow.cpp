@@ -4,6 +4,7 @@
 #include "usersdialog.h"
 #include "storagedialog.h"
 #include "documentsdialog.h"
+#include "vlasnikdialog.h"
 
 
 MainWindow::MainWindow(QWidget *parent) :
@@ -41,4 +42,10 @@ void MainWindow::on_actionDocs_triggered()
     DocumentsDialog *docDlg = new DocumentsDialog();
     this->setCentralWidget(docDlg);
     docDlg->exec();
+}
+
+void MainWindow::on_actionVlasn_triggered()
+{
+    VlasnikDialog *vlasDlg = new VlasnikDialog();
+    vlasDlg->exec();
 }

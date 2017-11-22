@@ -22,6 +22,8 @@ private slots:
 
     void on_actionDocs_triggered();
 
+    void on_actionVlasn_triggered();
+
 private:
     Ui::MainWindow *ui;
 };

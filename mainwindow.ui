@@ -35,7 +35,14 @@
      <addaction name="actionUsers"/>
      <addaction name="actionRegions"/>
     </widget>
+    <widget class="QMenu" name="menuRr0">
+     <property name="title">
+      <string>РРО</string>
+     </property>
+     <addaction name="actionVlasn"/>
+    </widget>
     <addaction name="menuDirectories"/>
+    <addaction name="menuRr0"/>
    </widget>
    <widget class="QMenu" name="menuStamps">
     <property name="title">
@@ -84,6 +91,11 @@
    </property>
    <property name="text">
     <string>Движение</string>
+   </property>
+  </action>
+  <action name="actionVlasn">
+   <property name="text">
+    <string>Владельцы</string>
    </property>
   </action>
  </widget>
