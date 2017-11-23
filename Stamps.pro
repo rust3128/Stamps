@@ -33,7 +33,8 @@ SOURCES += \
     documentsdialog.cpp \
     changedoctypedialog.cpp \
     docnewdialog.cpp \
-    vlasnikdialog.cpp
+    vlasnikdialog.cpp \
+    rrolistdialog.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -45,7 +46,8 @@ HEADERS += \
     documentsdialog.h \
     changedoctypedialog.h \
     docnewdialog.h \
-    vlasnikdialog.h
+    vlasnikdialog.h \
+    rrolistdialog.h
 
 FORMS += \
         mainwindow.ui \
@@ -56,7 +58,8 @@ FORMS += \
     documentsdialog.ui \
     changedoctypedialog.ui \
     docnewdialog.ui \
-    vlasnikdialog.ui
+    vlasnikdialog.ui \
+    rrolistdialog.ui
 
 RESOURCES += \
     resource.qrc

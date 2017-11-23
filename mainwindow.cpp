@@ -5,6 +5,7 @@
 #include "storagedialog.h"
 #include "documentsdialog.h"
 #include "vlasnikdialog.h"
+#include "rrolistdialog.h"
 
 
 MainWindow::MainWindow(QWidget *parent) :
@@ -48,4 +49,11 @@ void MainWindow::on_actionVlasn_triggered()
 {
     VlasnikDialog *vlasDlg = new VlasnikDialog();
     vlasDlg->exec();
+}
+
+void MainWindow::on_actionRroList_triggered()
+{
+    RroListDialog *rroDlg = new RroListDialog();
+    this->setCentralWidget(rroDlg);
+    rroDlg->exec();
 }
