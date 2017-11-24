@@ -2,6 +2,9 @@
 #define RROLISTDIALOG_H
 
 #include <QDialog>
+#include <QSqlRelationalTableModel>
+#include <QSqlRelation>
+
 
 namespace Ui {
 class RroListDialog;
@@ -17,6 +20,10 @@ public:
 
 private:
     Ui::RroListDialog *ui;
+    QSqlRelationalTableModel *modelRro;
+
+private:
+    void createUI();
 };
 
 #endif // RROLISTDIALOG_H
