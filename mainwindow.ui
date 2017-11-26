@@ -20,7 +20,7 @@
      <x>0</x>
      <y>0</y>
      <width>751</width>
-     <height>23</height>
+     <height>21</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuSettings">
@@ -41,6 +41,7 @@
      </property>
      <addaction name="actionVlasn"/>
      <addaction name="actionRroList"/>
+     <addaction name="actionModelRRo"/>
     </widget>
     <addaction name="menuDirectories"/>
     <addaction name="menuRr0"/>
@@ -102,6 +103,11 @@
   <action name="actionRroList">
    <property name="text">
     <string>Список РРО</string>
+   </property>
+  </action>
+  <action name="actionModelRRo">
+   <property name="text">
+    <string>Модели РРО</string>
    </property>
   </action>
  </widget>

@@ -6,6 +6,7 @@
 #include "documentsdialog.h"
 #include "vlasnikdialog.h"
 #include "rrolistdialog.h"
+#include "modelrrodialog.h"
 
 
 MainWindow::MainWindow(QWidget *parent) :
@@ -56,4 +57,10 @@ void MainWindow::on_actionRroList_triggered()
     RroListDialog *rroDlg = new RroListDialog();
     this->setCentralWidget(rroDlg);
     rroDlg->exec();
+}
+
+void MainWindow::on_actionModelRRo_triggered()
+{
+    ModelRroDialog *modRro  = new ModelRroDialog();
+    modRro->exec();
 }

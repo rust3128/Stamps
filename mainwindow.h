@@ -26,6 +26,8 @@ private slots:
 
     void on_actionRroList_triggered();
 
+    void on_actionModelRRo_triggered();
+
 private:
     Ui::MainWindow *ui;
 };

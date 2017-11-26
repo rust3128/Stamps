@@ -18,9 +18,15 @@ public:
     explicit RroListDialog(QWidget *parent = 0);
     ~RroListDialog();
 
+private slots:
+    void on_lineEditFind_textChanged(const QString &arg1);
+
+    void on_checkBox_clicked();
+
 private:
     Ui::RroListDialog *ui;
     QSqlRelationalTableModel *modelRro;
+    QString filter;
 
 private:
     void createUI();
