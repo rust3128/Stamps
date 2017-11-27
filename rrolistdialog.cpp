@@ -1,6 +1,11 @@
 #include "rrolistdialog.h"
 #include "ui_rrolistdialog.h"
-#include <QKeyEvent>
+#include "rrodialog.h"
+#include <QDebug>
+#include <QSqlQuery>
+#include <QSqlError>
+#include <QMessageBox>
+
 
 RroListDialog::RroListDialog(QWidget *parent) :
     QDialog(parent),
@@ -25,6 +30,7 @@ void RroListDialog::createUI()
     modelRro->setTable("rrolist");
 
     modelRro->setRelation(1,QSqlRelation("vlasnik","vlasnikid","name"));
+    modelRro->setRelation(6,QSqlRelation("rrotype", "typeid","typerro"));
     modelRro->select();
     modelRro->setHeaderData(1,Qt::Horizontal,"Владелец");
     modelRro->setHeaderData(2,Qt::Horizontal,"Терминал");
@@ -39,7 +45,7 @@ void RroListDialog::createUI()
     ui->tableView->hideColumn(0);
     ui->tableView->resizeColumnsToContents();
     ui->tableView->verticalHeader()->setDefaultSectionSize(ui->tableView->verticalHeader()->minimumSectionSize());
-    ui->tableView->selectRow(1);
+    ui->tableView->selectRow(0);
 //    QModelIndex newIndex = ui->tableView->model()->index(0, 0);
 //    ui->tableView->setCurrentIndex(newIndex);
 
@@ -65,4 +71,45 @@ void RroListDialog::on_checkBox_clicked()
     }
     modelRro->select();
 
+}
+
+void RroListDialog::on_toolButtonNew_clicked()
+{
+    RroDialog *rroDlg = new RroDialog(-1);
+    rroDlg->exec();
+}
+
+void RroListDialog::on_toolButtonEdit_clicked()
+{
+    QModelIndex idx = ui->tableView->currentIndex();
+    RroDialog *rroDlg = new RroDialog(modelRro->data(modelRro->index(idx.row(),0)).toInt());
+    rroDlg->exec();
+}
+
+void RroListDialog::on_toolButtonDelete_clicked()
+{
+    QModelIndex idx = ui->tableView->currentIndex();
+    QSqlQuery q;
+    QString strSql = QString("DELETE FROM `stamps`.`rrolist` WHERE `rroid`='%1'")
+            .arg(modelRro->data(modelRro->index(idx.row(),0)).toInt());
+
+    QMessageBox::StandardButton reply;
+    reply = QMessageBox::question(this, QString::fromUtf8("Удаление РРО"),
+                          QString::fromUtf8("Вы действительно хотите РРО с ЗН <b>%1</b>?")
+                                  .arg(modelRro->data(modelRro->index(idx.row(),4)).toString()),
+                          QMessageBox::Yes | QMessageBox::No);
+    if (reply == QMessageBox::Yes){
+        if(!q.exec(strSql)) qDebug() << "Не удалось удалить РРО!" << q.lastError().text();
+    }
+}
+
+void RroListDialog::on_tableView_doubleClicked(const QModelIndex &idx)
+{
+    RroDialog *rroDlg = new RroDialog(modelRro->data(modelRro->index(idx.row(),0)).toInt());
+    rroDlg->exec();
+}
+
+void RroListDialog::on_pushButton_clicked()
+{
+    this->reject();
 }

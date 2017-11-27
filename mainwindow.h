@@ -28,6 +28,8 @@ private slots:
 
     void on_actionModelRRo_triggered();
 
+    void on_actionVersion_triggered();
+
 private:
     Ui::MainWindow *ui;
 };

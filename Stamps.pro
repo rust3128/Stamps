@@ -35,7 +35,9 @@ SOURCES += \
     docnewdialog.cpp \
     vlasnikdialog.cpp \
     rrolistdialog.cpp \
-    modelrrodialog.cpp
+    modelrrodialog.cpp \
+    versionpodialog.cpp \
+    rrodialog.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -49,7 +51,9 @@ HEADERS += \
     docnewdialog.h \
     vlasnikdialog.h \
     rrolistdialog.h \
-    modelrrodialog.h
+    modelrrodialog.h \
+    versionpodialog.h \
+    rrodialog.h
 
 FORMS += \
         mainwindow.ui \
@@ -62,7 +66,9 @@ FORMS += \
     docnewdialog.ui \
     vlasnikdialog.ui \
     rrolistdialog.ui \
-    modelrrodialog.ui
+    modelrrodialog.ui \
+    versionpodialog.ui \
+    rrodialog.ui
 
 RESOURCES += \
     resource.qrc

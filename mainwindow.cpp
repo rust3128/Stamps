@@ -7,6 +7,7 @@
 #include "vlasnikdialog.h"
 #include "rrolistdialog.h"
 #include "modelrrodialog.h"
+#include "versionpodialog.h"
 
 
 MainWindow::MainWindow(QWidget *parent) :
@@ -63,4 +64,10 @@ void MainWindow::on_actionModelRRo_triggered()
 {
     ModelRroDialog *modRro  = new ModelRroDialog();
     modRro->exec();
+}
+
+void MainWindow::on_actionVersion_triggered()
+{
+    VersionPODialog *verDlg = new VersionPODialog();
+    verDlg->exec();
 }

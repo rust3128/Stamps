@@ -6,5 +6,7 @@
         <file>Image/error.png</file>
         <file>Image/edit.png</file>
         <file>Image/delete.png</file>
+        <file>Image/logo.png</file>
+        <file>Image/ekkr.png</file>
     </qresource>
 </RCC>

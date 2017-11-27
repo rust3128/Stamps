@@ -23,6 +23,16 @@ private slots:
 
     void on_checkBox_clicked();
 
+    void on_toolButtonNew_clicked();
+
+    void on_toolButtonEdit_clicked();
+
+    void on_toolButtonDelete_clicked();
+
+    void on_tableView_doubleClicked(const QModelIndex &idx);
+
+    void on_pushButton_clicked();
+
 private:
     Ui::RroListDialog *ui;
     QSqlRelationalTableModel *modelRro;

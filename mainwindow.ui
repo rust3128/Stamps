@@ -13,6 +13,10 @@
   <property name="windowTitle">
    <string>Stamps. Учет средств контроля </string>
   </property>
+  <property name="windowIcon">
+   <iconset resource="resource.qrc">
+    <normaloff>:/Image/logo.png</normaloff>:/Image/logo.png</iconset>
+  </property>
   <widget class="QWidget" name="centralWidget"/>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">
@@ -20,7 +24,7 @@
      <x>0</x>
      <y>0</y>
      <width>751</width>
-     <height>21</height>
+     <height>23</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuSettings">
@@ -42,6 +46,7 @@
      <addaction name="actionVlasn"/>
      <addaction name="actionRroList"/>
      <addaction name="actionModelRRo"/>
+     <addaction name="actionVersion"/>
     </widget>
     <addaction name="menuDirectories"/>
     <addaction name="menuRr0"/>
@@ -69,6 +74,7 @@
     <bool>false</bool>
    </attribute>
    <addaction name="actionDocs"/>
+   <addaction name="actionRroList"/>
   </widget>
   <widget class="QStatusBar" name="statusBar"/>
   <action name="actionRegions">
@@ -101,6 +107,10 @@
    </property>
   </action>
   <action name="actionRroList">
+   <property name="icon">
+    <iconset resource="resource.qrc">
+     <normaloff>:/Image/ekkr.png</normaloff>:/Image/ekkr.png</iconset>
+   </property>
    <property name="text">
     <string>Список РРО</string>
    </property>
@@ -108,6 +118,11 @@
   <action name="actionModelRRo">
    <property name="text">
     <string>Модели РРО</string>
+   </property>
+  </action>
+  <action name="actionVersion">
+   <property name="text">
+    <string>Версии ПО</string>
    </property>
   </action>
  </widget>
