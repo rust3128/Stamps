@@ -7,12 +7,12 @@
 #include <QMessageBox>
 
 
-RroListDialog::RroListDialog(QWidget *parent) :
+RroListDialog::RroListDialog(bool type, QWidget *parent) :
     QDialog(parent),
     ui(new Ui::RroListDialog)
 {
     ui->setupUi(this);
-
+    vozvrat=type;
     filter.clear();
 
     createUI();
@@ -26,6 +26,9 @@ RroListDialog::~RroListDialog()
 void RroListDialog::createUI()
 {
     ui->checkBox->setChecked(true);
+    if(!vozvrat) {
+        ui->pushButtonSelect->hide();
+    }
     modelRro = new QSqlRelationalTableModel();
     modelRro->setTable("rrolist");
 
@@ -50,6 +53,8 @@ void RroListDialog::createUI()
 //    ui->tableView->setCurrentIndex(newIndex);
 
 }
+
+
 
 void RroListDialog::on_lineEditFind_textChanged(const QString &arg1)
 {
@@ -105,11 +110,29 @@ void RroListDialog::on_toolButtonDelete_clicked()
 
 void RroListDialog::on_tableView_doubleClicked(const QModelIndex &idx)
 {
-    RroDialog *rroDlg = new RroDialog(modelRro->data(modelRro->index(idx.row(),0)).toInt());
-    rroDlg->exec();
+    if(vozvrat) {
+        rroSelected=modelRro->data(modelRro->index(idx.row(),0)).toInt();
+        this->accept();
+    } else {
+        RroDialog *rroDlg = new RroDialog(modelRro->data(modelRro->index(idx.row(),0)).toInt());
+        rroDlg->exec();
+    }
+
 }
 
 void RroListDialog::on_pushButton_clicked()
 {
     this->reject();
+}
+
+int RroListDialog::getRro()
+{
+    return rroSelected;
+}
+
+void RroListDialog::on_pushButtonSelect_clicked()
+{
+    QModelIndex idx = ui->tableView->currentIndex();
+    rroSelected=modelRro->data(modelRro->index(idx.row(),0)).toInt();
+    this->accept();
 }

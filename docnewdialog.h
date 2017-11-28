@@ -25,13 +25,15 @@ private slots:
     void on_buttonBox_clicked(QAbstractButton *button);
     void on_comboBox2Region_activated(int idx);
 
+    void on_comLinkButRro_clicked();
+
 private:
     Ui::DocNewDialog *ui;
     int docID;
     QString docType;
     QPixmap *pixOk;
     QPixmap *pixError;
-    bool serOK, begOK, endOK, diapOK, reg2OK;
+    bool serOK, begOK, endOK, diapOK, reg2OK, rroOK;
     QString serial;
     int numberBegin, numberEnd,colStamps;
     QString docNumber;

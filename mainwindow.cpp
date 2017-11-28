@@ -55,7 +55,7 @@ void MainWindow::on_actionVlasn_triggered()
 
 void MainWindow::on_actionRroList_triggered()
 {
-    RroListDialog *rroDlg = new RroListDialog();
+    RroListDialog *rroDlg = new RroListDialog(false);
     this->setCentralWidget(rroDlg);
     rroDlg->exec();
 }

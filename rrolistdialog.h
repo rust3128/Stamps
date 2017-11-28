@@ -15,7 +15,7 @@ class RroListDialog : public QDialog
     Q_OBJECT
 
 public:
-    explicit RroListDialog(QWidget *parent = 0);
+    explicit RroListDialog(bool type, QWidget *parent = 0);
     ~RroListDialog();
 
 private slots:
@@ -33,13 +33,19 @@ private slots:
 
     void on_pushButton_clicked();
 
+    void on_pushButtonSelect_clicked();
+
 private:
     Ui::RroListDialog *ui;
     QSqlRelationalTableModel *modelRro;
     QString filter;
+    bool vozvrat;
+    int rroSelected;
 
 private:
     void createUI();
+public:
+    int getRro();
 };
 
 #endif // RROLISTDIALOG_H
