@@ -8,5 +8,6 @@
         <file>Image/delete.png</file>
         <file>Image/logo.png</file>
         <file>Image/ekkr.png</file>
+        <file>Image/report.png</file>
     </qresource>
 </RCC>

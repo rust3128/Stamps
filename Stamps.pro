@@ -37,7 +37,8 @@ SOURCES += \
     rrolistdialog.cpp \
     modelrrodialog.cpp \
     versionpodialog.cpp \
-    rrodialog.cpp
+    rrodialog.cpp \
+    usedreportdialog.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -53,7 +54,8 @@ HEADERS += \
     rrolistdialog.h \
     modelrrodialog.h \
     versionpodialog.h \
-    rrodialog.h
+    rrodialog.h \
+    usedreportdialog.h
 
 FORMS += \
         mainwindow.ui \
@@ -68,7 +70,8 @@ FORMS += \
     rrolistdialog.ui \
     modelrrodialog.ui \
     versionpodialog.ui \
-    rrodialog.ui
+    rrodialog.ui \
+    usedreportdialog.ui
 
 RESOURCES += \
     resource.qrc

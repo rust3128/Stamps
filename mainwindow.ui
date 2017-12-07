@@ -55,7 +55,14 @@
     <property name="title">
      <string>Марки</string>
     </property>
+    <widget class="QMenu" name="menuReports">
+     <property name="title">
+      <string>Отчеты</string>
+     </property>
+     <addaction name="actionUsedStamps"/>
+    </widget>
     <addaction name="actionDocs"/>
+    <addaction name="menuReports"/>
    </widget>
    <addaction name="menuStamps"/>
    <addaction name="menuSettings"/>
@@ -123,6 +130,11 @@
   <action name="actionVersion">
    <property name="text">
     <string>Версии ПО</string>
+   </property>
+  </action>
+  <action name="actionUsedStamps">
+   <property name="text">
+    <string>Использование марок</string>
    </property>
   </action>
  </widget>

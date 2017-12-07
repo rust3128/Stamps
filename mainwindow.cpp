@@ -8,6 +8,7 @@
 #include "rrolistdialog.h"
 #include "modelrrodialog.h"
 #include "versionpodialog.h"
+#include "usedreportdialog.h"
 
 
 MainWindow::MainWindow(QWidget *parent) :
@@ -70,4 +71,11 @@ void MainWindow::on_actionVersion_triggered()
 {
     VersionPODialog *verDlg = new VersionPODialog();
     verDlg->exec();
+}
+
+void MainWindow::on_actionUsedStamps_triggered()
+{
+    UsedReportDialog *useDlg = new UsedReportDialog();
+    this->setCentralWidget(useDlg);
+    useDlg->exec();
 }

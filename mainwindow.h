@@ -30,6 +30,8 @@ private slots:
 
     void on_actionVersion_triggered();
 
+    void on_actionUsedStamps_triggered();
+
 private:
     Ui::MainWindow *ui;
 };
