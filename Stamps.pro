@@ -38,7 +38,9 @@ SOURCES += \
     modelrrodialog.cpp \
     versionpodialog.cpp \
     rrodialog.cpp \
-    usedreportdialog.cpp
+    usedreportdialog.cpp \
+    threadnewdoc.cpp \
+    QProgressIndicator.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -55,7 +57,9 @@ HEADERS += \
     modelrrodialog.h \
     versionpodialog.h \
     rrodialog.h \
-    usedreportdialog.h
+    usedreportdialog.h \
+    threadnewdoc.h \
+    QProgressIndicator.h
 
 FORMS += \
         mainwindow.ui \

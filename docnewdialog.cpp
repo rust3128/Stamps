@@ -1,6 +1,8 @@
 #include "docnewdialog.h"
 #include "ui_docnewdialog.h"
 #include "rrolistdialog.h"
+#include "threadnewdoc.h"
+#include "QProgressIndicator.h"
 #include <QPushButton>
 #include <QDebug>
 #include <QSqlQuery>
@@ -14,6 +16,9 @@ DocNewDialog::DocNewDialog(int ID, QString Type, QWidget *parent) :
     ui->setupUi(this);
     docID=ID;
     docType=Type;
+
+
+
     createUI();
 }
 
@@ -26,6 +31,7 @@ void DocNewDialog::createUI()
 {
     this->setWindowTitle("Новый документ " + docType);
     ui->labelTitle->setText("Новый документ\n"+docType);
+    ui->frame_2->hide();
 
     QRegExp markaRegex("[А-Я][А-Я]");
     QRegExp number("\\d{6}");
@@ -207,7 +213,9 @@ void DocNewDialog::on_buttonBox_clicked(QAbstractButton *button)
 void DocNewDialog::documentCreate()
 {
     QSqlQuery q;
+    ThreadNewDoc *newDOC;
     QString strSQL;
+    QProgressIndicator *pi = new QProgressIndicator();
 
     if(docID>1 && docID<5) {
         if(!validStamps()) return;
@@ -223,8 +231,16 @@ void DocNewDialog::documentCreate()
             .arg(ui->plainTextEditComments->toPlainText())
             .arg(idStatus)
             .arg(idStorage);
+    newDOC = new ThreadNewDoc(strSQL);
+    ui->frame->hide();
+    this->layout()->addWidget(pi);
+    pi->startAnimation();
+//    newDOC->start();
+
+
 
     if(!q.exec(strSQL)) qDebug() << "Не удалось создать документ." << q.lastError().text();
+    pi->stopAnimation();
     this->accept();
 
 
