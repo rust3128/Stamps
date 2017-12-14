@@ -17,9 +17,10 @@ DocNewDialog::DocNewDialog(int ID, QString Type, QWidget *parent) :
     docID=ID;
     docType=Type;
 
-
-
     createUI();
+
+
+
 }
 
 DocNewDialog::~DocNewDialog()
@@ -215,7 +216,7 @@ void DocNewDialog::documentCreate()
     QSqlQuery q;
     ThreadNewDoc *newDOC;
     QString strSQL;
-    QProgressIndicator *pi = new QProgressIndicator();
+//    QProgressIndicator *pi = new QProgressIndicator();
 
     if(docID>1 && docID<5) {
         if(!validStamps()) return;
@@ -233,14 +234,18 @@ void DocNewDialog::documentCreate()
             .arg(idStorage);
     newDOC = new ThreadNewDoc(strSQL);
     ui->frame->hide();
-    this->layout()->addWidget(pi);
-    pi->startAnimation();
-//    newDOC->start();
+
+//    pi->setColor(Qt::green);
+//    pi->startAnimation();
+//    this->layout()->addWidget(pi);
+
+    newDOC->start();
 
 
 
-    if(!q.exec(strSQL)) qDebug() << "Не удалось создать документ." << q.lastError().text();
-    pi->stopAnimation();
+
+//    if(!q.exec(strSQL)) qDebug() << "Не удалось создать документ." << q.lastError().text();
+//    pi->stopAnimation();
     this->accept();
 
 

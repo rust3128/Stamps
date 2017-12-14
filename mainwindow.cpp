@@ -9,6 +9,7 @@
 #include "modelrrodialog.h"
 #include "versionpodialog.h"
 #include "usedreportdialog.h"
+#include "QProgressIndicator.h"
 
 
 MainWindow::MainWindow(QWidget *parent) :
